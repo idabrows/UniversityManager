@@ -70,14 +70,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
     <EntityDeploy Include="University.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>University.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="packages.config" />
     <None Include="University.edmx.diagram">
       <DependentUpon>University.edmx</DependentUpon>
     </None>
@@ -97,19 +95,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="University.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>University.Context.cs</LastGenOutput>
       <DependentUpon>University.edmx</DependentUpon>
+      <LastGenOutput>University.Context.cs</LastGenOutput>
     </Content>
     <Content Include="University.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>University.edmx</DependentUpon>
       <LastGenOutput>University.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

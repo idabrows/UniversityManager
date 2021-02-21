@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UniversityModelStoreContainer" CdmEntityContainer="EntitiesUniversity">
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="UniversityModel.Employees">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="SupervisorId" ColumnName="SupervisorId" />
+          <ScalarProperty Name="SpecializationId" ColumnName="SpecializationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeesInRooms">
+      <EntityTypeMapping TypeName="UniversityModel.EmployeesInRooms">
+        <MappingFragment StoreEntitySet="EmployeesInRooms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdEmployee" ColumnName="IdEmployee" />
+          <ScalarProperty Name="IdRoom" ColumnName="IdRoom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Facilities">
+      <EntityTypeMapping TypeName="UniversityModel.Facilities">
+        <MappingFragment StoreEntitySet="Facilities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FacilitiesInRooms">
+      <EntityTypeMapping TypeName="UniversityModel.FacilitiesInRooms">
+        <MappingFragment StoreEntitySet="FacilitiesInRooms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdFacility" ColumnName="IdFacility" />
+          <ScalarProperty Name="IdRoom" ColumnName="IdRoom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Preferences">
+      <EntityTypeMapping TypeName="UniversityModel.Preferences">
+        <MappingFragment StoreEntitySet="Preferences">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdEmployee" ColumnName="IdEmployee" />
+          <ScalarProperty Name="IdCoworker" ColumnName="IdCoworker" />
+          <ScalarProperty Name="PreferencePoints" ColumnName="PreferencePoints" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="UniversityModel.Rooms">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Building" ColumnName="Building" />
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+          <ScalarProperty Name="AvailableSeats" ColumnName="AvailableSeats" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Specializations">
+      <EntityTypeMapping TypeName="UniversityModel.Specializations">
+        <MappingFragment StoreEntitySet="Specializations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

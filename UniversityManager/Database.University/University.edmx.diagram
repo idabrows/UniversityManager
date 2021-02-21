@@ -4,29 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c161c107a1af4c25a4cc061d4b2b56df" Name="Diagram1">
-        <EntityTypeShape EntityType="University.Employees" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="University.EmployeesInRooms" Width="1.5" PointX="7" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="University.Facilities" Width="1.5" PointX="11.875" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="University.FacilitiesInRooms" Width="1.5" PointX="8.25" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="University.Preferences" Width="1.5" PointX="3.75" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="University.Rooms" Width="1.5" PointX="12" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="University.Specializations" Width="1.5" PointX="0.5" PointY="3.125" IsExpanded="true" />
-        <AssociationConnector Association="University.FK_Employees_Employees" ManuallyRouted="true" >
-          <ConnectorPoint PointX="3.5319230769230767" PointY="5.201396484375" />
-          <ConnectorPoint PointX="3.5319230769230767" PointY="6.763896484375" />
-          <ConnectorPoint PointX="3.7183974358974354" PointY="6.7638964843749987" />
-          <ConnectorPoint PointX="3.8850641025641024" PointY="6.763896484375" />
-          <ConnectorPoint PointX="3.9784615384615383" PointY="6.763896484375" />
-          <ConnectorPoint PointX="3.9784615384615383" PointY="5.201396484375" />
-        </AssociationConnector>
-        <AssociationConnector Association="University.FK_Employees_Specializations" ManuallyRouted="false" />
-        <AssociationConnector Association="University.FK_EmployeesInRooms_Employees" ManuallyRouted="false" />
-        <AssociationConnector Association="University.FK_Preferences_Employees" ManuallyRouted="false" />
-        <AssociationConnector Association="University.FK_Preferences_Employees1" ManuallyRouted="false" />
-        <AssociationConnector Association="University.FK_EmployeesInRooms_Rooms" ManuallyRouted="false" />
-        <AssociationConnector Association="University.FK_FacilitiesInRooms_Facilities" ManuallyRouted="false" />
-        <AssociationConnector Association="University.FK_FacilitiesInRooms_Rooms" ManuallyRouted="false" />
+      <Diagram DiagramId="6feab5f770ae4bfc885802ff48c602cf" Name="Diagram1">
+        <EntityTypeShape EntityType="UniversityModel.Employees" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityModel.EmployeesInRooms" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityModel.Facilities" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityModel.FacilitiesInRooms" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityModel.Preferences" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityModel.Rooms" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityModel.Specializations" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <AssociationConnector Association="UniversityModel.FK_Employees_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityModel.FK_Employees_Specializations" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityModel.FK_EmployeesInRooms_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityModel.FK_Preferences_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityModel.FK_Preferences_Employees1" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityModel.FK_EmployeesInRooms_Rooms" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityModel.FK_FacilitiesInRooms_Facilities" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityModel.FK_FacilitiesInRooms_Rooms" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

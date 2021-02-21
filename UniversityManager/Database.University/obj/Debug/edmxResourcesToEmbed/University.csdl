@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UniversityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Position" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SupervisorId" Type="Int32" />
+    <Property Name="SpecializationId" Type="Int32" />
+    <NavigationProperty Name="Employees1" Relationship="Self.FK_Employees_Employees" FromRole="Employees" ToRole="Employees1" />
+    <NavigationProperty Name="Employees2" Relationship="Self.FK_Employees_Employees" FromRole="Employees1" ToRole="Employees" />
+    <NavigationProperty Name="Specializations" Relationship="Self.FK_Employees_Specializations" FromRole="Employees" ToRole="Specializations" />
+    <NavigationProperty Name="EmployeesInRooms" Relationship="Self.FK_EmployeesInRooms_Employees" FromRole="Employees" ToRole="EmployeesInRooms" />
+    <NavigationProperty Name="Preferences" Relationship="Self.FK_Preferences_Employees" FromRole="Employees" ToRole="Preferences" />
+    <NavigationProperty Name="Preferences1" Relationship="Self.FK_Preferences_Employees1" FromRole="Employees" ToRole="Preferences" />
+  </EntityType>
+  <EntityType Name="EmployeesInRooms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdEmployee" Type="Int32" Nullable="false" />
+    <Property Name="IdRoom" Type="Int32" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_EmployeesInRooms_Employees" FromRole="EmployeesInRooms" ToRole="Employees" />
+    <NavigationProperty Name="Rooms" Relationship="Self.FK_EmployeesInRooms_Rooms" FromRole="EmployeesInRooms" ToRole="Rooms" />
+  </EntityType>
+  <EntityType Name="Facilities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="FacilitiesInRooms" Relationship="Self.FK_FacilitiesInRooms_Facilities" FromRole="Facilities" ToRole="FacilitiesInRooms" />
+  </EntityType>
+  <EntityType Name="FacilitiesInRooms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdFacility" Type="Int32" Nullable="false" />
+    <Property Name="IdRoom" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Facilities" Relationship="Self.FK_FacilitiesInRooms_Facilities" FromRole="FacilitiesInRooms" ToRole="Facilities" />
+    <NavigationProperty Name="Rooms" Relationship="Self.FK_FacilitiesInRooms_Rooms" FromRole="FacilitiesInRooms" ToRole="Rooms" />
+  </EntityType>
+  <EntityType Name="Preferences">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdEmployee" Type="Int32" Nullable="false" />
+    <Property Name="IdCoworker" Type="Int32" Nullable="false" />
+    <Property Name="PreferencePoints" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Preferences_Employees" FromRole="Preferences" ToRole="Employees" />
+    <NavigationProperty Name="Employees1" Relationship="Self.FK_Preferences_Employees1" FromRole="Preferences" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Rooms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Building" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="RoomNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AvailableSeats" Type="Int32" />
+    <NavigationProperty Name="EmployeesInRooms" Relationship="Self.FK_EmployeesInRooms_Rooms" FromRole="Rooms" ToRole="EmployeesInRooms" />
+    <NavigationProperty Name="FacilitiesInRooms" Relationship="Self.FK_FacilitiesInRooms_Rooms" FromRole="Rooms" ToRole="FacilitiesInRooms" />
+  </EntityType>
+  <EntityType Name="Specializations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Specializations" FromRole="Specializations" ToRole="Employees" />
+  </EntityType>
+  <Association Name="FK_Employees_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="Employees1" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employees1">
+        <PropertyRef Name="SupervisorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_Specializations">
+    <End Role="Specializations" Type="Self.Specializations" Multiplicity="0..1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specializations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="SpecializationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeesInRooms_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EmployeesInRooms" Type="Self.EmployeesInRooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeesInRooms">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Preferences_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Preferences" Type="Self.Preferences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Preferences">
+        <PropertyRef Name="IdCoworker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Preferences_Employees1">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Preferences" Type="Self.Preferences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Preferences">
+        <PropertyRef Name="IdEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeesInRooms_Rooms">
+    <End Role="Rooms" Type="Self.Rooms" Multiplicity="0..1" />
+    <End Role="EmployeesInRooms" Type="Self.EmployeesInRooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rooms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeesInRooms">
+        <PropertyRef Name="IdRoom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacilitiesInRooms_Facilities">
+    <End Role="Facilities" Type="Self.Facilities" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FacilitiesInRooms" Type="Self.FacilitiesInRooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Facilities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FacilitiesInRooms">
+        <PropertyRef Name="IdFacility" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacilitiesInRooms_Rooms">
+    <End Role="Rooms" Type="Self.Rooms" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FacilitiesInRooms" Type="Self.FacilitiesInRooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rooms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FacilitiesInRooms">
+        <PropertyRef Name="IdRoom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EntitiesUniversity" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Employees" EntityType="Self.Employees" />
+    <EntitySet Name="EmployeesInRooms" EntityType="Self.EmployeesInRooms" />
+    <EntitySet Name="Facilities" EntityType="Self.Facilities" />
+    <EntitySet Name="FacilitiesInRooms" EntityType="Self.FacilitiesInRooms" />
+    <EntitySet Name="Preferences" EntityType="Self.Preferences" />
+    <EntitySet Name="Rooms" EntityType="Self.Rooms" />
+    <EntitySet Name="Specializations" EntityType="Self.Specializations" />
+    <AssociationSet Name="FK_Employees_Employees" Association="Self.FK_Employees_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Employees1" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_Specializations" Association="Self.FK_Employees_Specializations">
+      <End Role="Specializations" EntitySet="Specializations" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeesInRooms_Employees" Association="Self.FK_EmployeesInRooms_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="EmployeesInRooms" EntitySet="EmployeesInRooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Preferences_Employees" Association="Self.FK_Preferences_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Preferences" EntitySet="Preferences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Preferences_Employees1" Association="Self.FK_Preferences_Employees1">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Preferences" EntitySet="Preferences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeesInRooms_Rooms" Association="Self.FK_EmployeesInRooms_Rooms">
+      <End Role="Rooms" EntitySet="Rooms" />
+      <End Role="EmployeesInRooms" EntitySet="EmployeesInRooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacilitiesInRooms_Facilities" Association="Self.FK_FacilitiesInRooms_Facilities">
+      <End Role="Facilities" EntitySet="Facilities" />
+      <End Role="FacilitiesInRooms" EntitySet="FacilitiesInRooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacilitiesInRooms_Rooms" Association="Self.FK_FacilitiesInRooms_Rooms">
+      <End Role="Rooms" EntitySet="Rooms" />
+      <End Role="FacilitiesInRooms" EntitySet="FacilitiesInRooms" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

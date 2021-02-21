@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="University.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="UniversityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Employees">
           <Key>
             <PropertyRef Name="Id" />
@@ -168,7 +168,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="UniversityStoreContainer">
+        <EntityContainer Name="UniversityModelStoreContainer">
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeesInRooms" EntityType="Self.EmployeesInRooms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Facilities" EntityType="Self.Facilities" Schema="dbo" store:Type="Tables" />
@@ -213,7 +213,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="University" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="UniversityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Employees">
           <Key>
             <PropertyRef Name="Id" />
@@ -393,7 +393,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="EntityUniversity" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EntitiesUniversity" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Employees" EntityType="Self.Employees" />
           <EntitySet Name="EmployeesInRooms" EntityType="Self.EmployeesInRooms" />
           <EntitySet Name="Facilities" EntityType="Self.Facilities" />
@@ -439,9 +439,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="UniversityStoreContainer" CdmEntityContainer="EntityUniversity">
+        <EntityContainerMapping StorageEntityContainer="UniversityModelStoreContainer" CdmEntityContainer="EntitiesUniversity">
           <EntitySetMapping Name="Employees">
-            <EntityTypeMapping TypeName="University.Employees">
+            <EntityTypeMapping TypeName="UniversityModel.Employees">
               <MappingFragment StoreEntitySet="Employees">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Position" ColumnName="Position" />
@@ -453,7 +453,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmployeesInRooms">
-            <EntityTypeMapping TypeName="University.EmployeesInRooms">
+            <EntityTypeMapping TypeName="UniversityModel.EmployeesInRooms">
               <MappingFragment StoreEntitySet="EmployeesInRooms">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdEmployee" ColumnName="IdEmployee" />
@@ -462,7 +462,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Facilities">
-            <EntityTypeMapping TypeName="University.Facilities">
+            <EntityTypeMapping TypeName="UniversityModel.Facilities">
               <MappingFragment StoreEntitySet="Facilities">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -470,7 +470,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FacilitiesInRooms">
-            <EntityTypeMapping TypeName="University.FacilitiesInRooms">
+            <EntityTypeMapping TypeName="UniversityModel.FacilitiesInRooms">
               <MappingFragment StoreEntitySet="FacilitiesInRooms">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdFacility" ColumnName="IdFacility" />
@@ -479,7 +479,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Preferences">
-            <EntityTypeMapping TypeName="University.Preferences">
+            <EntityTypeMapping TypeName="UniversityModel.Preferences">
               <MappingFragment StoreEntitySet="Preferences">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdEmployee" ColumnName="IdEmployee" />
@@ -489,7 +489,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rooms">
-            <EntityTypeMapping TypeName="University.Rooms">
+            <EntityTypeMapping TypeName="UniversityModel.Rooms">
               <MappingFragment StoreEntitySet="Rooms">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Building" ColumnName="Building" />
@@ -499,7 +499,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Specializations">
-            <EntityTypeMapping TypeName="University.Specializations">
+            <EntityTypeMapping TypeName="UniversityModel.Specializations">
               <MappingFragment StoreEntitySet="Specializations">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

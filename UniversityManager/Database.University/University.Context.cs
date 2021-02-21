@@ -13,10 +13,10 @@ namespace Database.University
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EntityUniversity : DbContext
+    public partial class EntitiesUniversity : DbContext
     {
-        public EntityUniversity()
-            : base("name=EntityUniversity")
+        public EntitiesUniversity()
+            : base("name=EntitiesUniversity")
         {
         }
     

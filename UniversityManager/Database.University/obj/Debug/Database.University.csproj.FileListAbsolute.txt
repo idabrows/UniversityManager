@@ -1,0 +1,12 @@
+C:\Users\izabela.dabrowska\Desktop\UniversityManager\UniversityManager\Database.University\bin\Debug\Database.University.dll.config
+C:\Users\izabela.dabrowska\Desktop\UniversityManager\UniversityManager\Database.University\bin\Debug\Database.University.dll
+C:\Users\izabela.dabrowska\Desktop\UniversityManager\UniversityManager\Database.University\bin\Debug\Database.University.pdb
+C:\Users\izabela.dabrowska\Desktop\UniversityManager\UniversityManager\Database.University\bin\Debug\EntityFramework.dll
+C:\Users\izabela.dabrowska\Desktop\UniversityManager\UniversityManager\Database.University\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\izabela.dabrowska\Desktop\UniversityManager\UniversityManager\Database.University\bin\Debug\EntityFramework.xml
+C:\Users\izabela.dabrowska\Desktop\UniversityManager\UniversityManager\Database.University\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\izabela.dabrowska\Desktop\UniversityManager\UniversityManager\Database.University\obj\Debug\Database.University.csprojAssemblyReference.cache
+C:\Users\izabela.dabrowska\Desktop\UniversityManager\UniversityManager\Database.University\obj\Debug\Database.University.csproj.CoreCompileInputs.cache
+C:\Users\izabela.dabrowska\Desktop\UniversityManager\UniversityManager\Database.University\obj\Debug\Database.University.csproj.CopyComplete
+C:\Users\izabela.dabrowska\Desktop\UniversityManager\UniversityManager\Database.University\obj\Debug\Database.University.dll
+C:\Users\izabela.dabrowska\Desktop\UniversityManager\UniversityManager\Database.University\obj\Debug\Database.University.pdb
